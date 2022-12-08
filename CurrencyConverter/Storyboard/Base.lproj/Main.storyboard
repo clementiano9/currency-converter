@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqU-za-DSJ" userLabel="TextWithDropdown">
-                                <rect key="frame" x="20" y="203" width="146" height="34"/>
+                                <rect key="frame" x="20" y="124.5" width="146" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNG-AZ-CZ8">
                                         <rect key="frame" x="8" y="0.0" width="115" height="34"/>
@@ -51,7 +51,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVc-st-jw3">
-                                <rect key="frame" x="183" y="205" width="48" height="27"/>
+                                <rect key="frame" x="183" y="128" width="48" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="DXH-xB-48I"/>
                                     <constraint firstAttribute="width" constant="48" id="QKO-zO-GR1"/>
@@ -60,15 +60,18 @@
                                 <buttonConfiguration key="configuration" style="plain" image="swap-horizontal"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpf-LE-PB1">
-                                <rect key="frame" x="20" y="277" width="146" height="48"/>
+                                <rect key="frame" x="20" y="198.5" width="146" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="4dc-pc-UST"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="amountChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="7TT-Ir-4Lk"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-y8-Mex">
-                                <rect key="frame" x="248" y="277" width="146" height="48"/>
+                                <rect key="frame" x="248" y="198.5" width="146" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="IFf-ah-IDH"/>
                                 </constraints>
@@ -76,7 +79,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cF-kY-DQk" userLabel="TextWithDropdown">
-                                <rect key="frame" x="248" y="201.5" width="146" height="34"/>
+                                <rect key="frame" x="248" y="124.5" width="146" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6B-6U-Adp">
                                         <rect key="frame" x="8" y="0.0" width="115" height="34"/>
@@ -110,29 +113,36 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wk-MJ-eio">
-                                <rect key="frame" x="172.5" y="373" width="69" height="31"/>
+                                <rect key="frame" x="172.5" y="294.5" width="69" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Details"/>
                                 <connections>
                                     <segue destination="gOh-HW-Pfi" kind="show" id="Sjd-lN-tYi"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NNh-d4-a0J">
+                                <rect key="frame" x="196" y="212.5" width="22" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0Wk-MJ-eio" firstAttribute="centerX" secondItem="uVc-st-jw3" secondAttribute="centerX" id="06I-vx-2Sx"/>
                             <constraint firstItem="bMl-y8-Mex" firstAttribute="leading" secondItem="0cF-kY-DQk" secondAttribute="leading" id="6DF-KM-RLt"/>
+                            <constraint firstItem="bMl-y8-Mex" firstAttribute="leading" secondItem="NNh-d4-a0J" secondAttribute="trailing" constant="30" id="7T8-Jx-bec"/>
                             <constraint firstItem="0cF-kY-DQk" firstAttribute="centerY" secondItem="uVc-st-jw3" secondAttribute="centerY" id="9HH-vo-HcP"/>
-                            <constraint firstItem="xqU-za-DSJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="9sc-pR-Nn6"/>
+                            <constraint firstItem="NNh-d4-a0J" firstAttribute="leading" secondItem="lpf-LE-PB1" secondAttribute="trailing" constant="30" id="Apv-jr-cr0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0cF-kY-DQk" secondAttribute="trailing" constant="20" id="IgV-4p-ffA"/>
                             <constraint firstItem="lpf-LE-PB1" firstAttribute="trailing" secondItem="xqU-za-DSJ" secondAttribute="trailing" id="MBT-ah-DYW"/>
+                            <constraint firstItem="NNh-d4-a0J" firstAttribute="centerY" secondItem="lpf-LE-PB1" secondAttribute="centerY" id="Mfo-05-3YY"/>
                             <constraint firstItem="0cF-kY-DQk" firstAttribute="leading" secondItem="uVc-st-jw3" secondAttribute="trailing" constant="17" id="NOl-G0-eVx"/>
                             <constraint firstItem="0Wk-MJ-eio" firstAttribute="top" secondItem="lpf-LE-PB1" secondAttribute="bottom" constant="48" id="Owj-Ar-etr"/>
+                            <constraint firstItem="NNh-d4-a0J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SqF-nm-qzg"/>
                             <constraint firstItem="bMl-y8-Mex" firstAttribute="trailing" secondItem="0cF-kY-DQk" secondAttribute="trailing" id="XKk-j0-OKg"/>
                             <constraint firstItem="uVc-st-jw3" firstAttribute="leading" secondItem="xqU-za-DSJ" secondAttribute="trailing" constant="17" id="aal-mm-TBU"/>
                             <constraint firstItem="lpf-LE-PB1" firstAttribute="top" secondItem="xqU-za-DSJ" secondAttribute="bottom" constant="40" id="biP-RC-ZnJ"/>
-                            <constraint firstItem="uVc-st-jw3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="117" id="gbg-Qx-1cG"/>
+                            <constraint firstItem="xqU-za-DSJ" firstAttribute="centerY" secondItem="uVc-st-jw3" secondAttribute="centerY" id="bjo-qu-xFj"/>
+                            <constraint firstItem="uVc-st-jw3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="gbg-Qx-1cG"/>
                             <constraint firstItem="lpf-LE-PB1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rJM-OG-GkL"/>
                             <constraint firstItem="bMl-y8-Mex" firstAttribute="centerY" secondItem="lpf-LE-PB1" secondAttribute="centerY" id="rL8-6f-RDp"/>
                             <constraint firstItem="xqU-za-DSJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="roq-Rf-ek3"/>
@@ -141,6 +151,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="5xW-cp-vog"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="NNh-d4-a0J" id="gkX-W6-XrP"/>
+                        <outlet property="convertedField" destination="bMl-y8-Mex" id="57o-9a-iQr"/>
                         <outlet property="fromTextField" destination="BNG-AZ-CZ8" id="URx-F2-k1k"/>
                         <outlet property="fromView" destination="xqU-za-DSJ" id="D36-Z6-gIy"/>
                         <outlet property="toTextField" destination="i6B-6U-Adp" id="Tu6-Lj-Qau"/>
