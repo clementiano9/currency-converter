@@ -20,12 +20,15 @@ class MainViewModel {
     var symbols: [String: String] = [:] // The currencys available
     private var sortedSymbolKeys = [String]()   // Stores the symbols keys in a sorted manner
     
-    private var rates: [String : Double] = [:]  // Conversion rates 
+    private (set) var rates: [String : Double] = [:]  // Conversion rates 
     let fromCurrency = BehaviorRelay<String>(value: "")
     let toCurrenccy = BehaviorRelay<String>(value: "")
     
     var fromValue: String = ""
     var toValue = ""
+    
+    // Subscriptions
+    var _symbolsSubscription: Disposable? = nil
     
     init(delegate: MainViewDisplayLogic, service: ApiServiceDelegate = ApiService()) {
         self.delegate = delegate
@@ -54,7 +57,7 @@ class MainViewModel {
     /// Fetch symbols/currencies
     func getSymbols() {
         delegate.mainDataLoading()
-        service.getSymbols()
+        _symbolsSubscription = service.getSymbols()
             .subscribe { [weak self] response in
                 if (response.success) {
                     self?.symbols = response.symbols
@@ -63,11 +66,14 @@ class MainViewModel {
                     self?.delegate.mainDataLoadingSuccess()
                 } else {
                     print("Error fetching symbols")
+                    self?.delegate.mainDataLoadingFailure(error: ErrorResponse.custom("Unable to fetch data"))
                 }
             } onError: { [weak self] error in
                 print("Error fetching symbolds: \(error.localizedDescription)")
                 self?.delegate.mainDataLoadingFailure(error: error)
-            }.disposed(by: bag)
+            }
+        
+        _symbolsSubscription?.disposed(by: bag)
 
     }
     

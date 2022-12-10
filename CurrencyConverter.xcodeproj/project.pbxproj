@@ -10,8 +10,12 @@
 		17FA8844C166858F8C1D6778 /* Pods_CurrencyConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5034AD0E4D078620E3B85 /* Pods_CurrencyConverter.framework */; };
 		6A9FBE8E9AB4F5237883F29F /* Pods_CurrencyConverterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D9A3A08A3F492B4E9F3643 /* Pods_CurrencyConverterTests.framework */; };
 		B422CB382940D1F8002EC0A5 /* LatestRatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422CB372940D1F8002EC0A5 /* LatestRatesResponse.swift */; };
+		B43AF99C2942268200952E57 /* MockMainViewDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AF99B2942268200952E57 /* MockMainViewDisplayLogic.swift */; };
+		B43AF99E294226A400952E57 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AF99D294226A400952E57 /* MockApiService.swift */; };
+		B43AF9A0294228CA00952E57 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AF99F294228CA00952E57 /* ErrorResponse.swift */; };
 		B4D0CE8029410E670015E0D5 /* DictionaryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D0CE7F29410E670015E0D5 /* DictionaryUtils.swift */; };
 		B4D0CE8229415F9C0015E0D5 /* Fixer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4D0CE8129415F9C0015E0D5 /* Fixer-Info.plist */; };
+		B4D0CE852941DDD00015E0D5 /* MainViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D0CE842941DDD00015E0D5 /* MainViewModelTest.swift */; };
 		B4D5DAA8293CA9620092F759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5DAA7293CA9620092F759 /* AppDelegate.swift */; };
 		B4D5DAAA293CA9620092F759 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5DAA9293CA9620092F759 /* SceneDelegate.swift */; };
 		B4D5DAAC293CA9620092F759 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5DAAB293CA9620092F759 /* MainViewController.swift */; };
@@ -55,8 +59,12 @@
 		39D15BE3FF3D34E734AE586F /* Pods_CurrencyConverter_CurrencyConverterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyConverter_CurrencyConverterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6868A8F5EA94A4BB4764913 /* Pods-CurrencyConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyConverter.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyConverter/Pods-CurrencyConverter.debug.xcconfig"; sourceTree = "<group>"; };
 		B422CB372940D1F8002EC0A5 /* LatestRatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRatesResponse.swift; sourceTree = "<group>"; };
+		B43AF99B2942268200952E57 /* MockMainViewDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainViewDisplayLogic.swift; sourceTree = "<group>"; };
+		B43AF99D294226A400952E57 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
+		B43AF99F294228CA00952E57 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		B4D0CE7F29410E670015E0D5 /* DictionaryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtils.swift; sourceTree = "<group>"; };
 		B4D0CE8129415F9C0015E0D5 /* Fixer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fixer-Info.plist"; sourceTree = "<group>"; };
+		B4D0CE842941DDD00015E0D5 /* MainViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTest.swift; sourceTree = "<group>"; };
 		B4D5DAA4293CA9620092F759 /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D5DAA7293CA9620092F759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4D5DAA9293CA9620092F759 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +139,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B4D0CE862941DDD50015E0D5 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B43AF99B2942268200952E57 /* MockMainViewDisplayLogic.swift */,
+				B43AF99D294226A400952E57 /* MockApiService.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		B4D5DA9B293CA9620092F759 = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +191,9 @@
 		B4D5DABD293CA9640092F759 /* CurrencyConverterTests */ = {
 			isa = PBXGroup;
 			children = (
+				B4D0CE862941DDD50015E0D5 /* Mock */,
 				B4D5DABE293CA9640092F759 /* CurrencyConverterTests.swift */,
+				B4D0CE842941DDD00015E0D5 /* MainViewModelTest.swift */,
 			);
 			path = CurrencyConverterTests;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 			children = (
 				B4FB5D90293F7312002DC03E /* SymbolsResponse.swift */,
 				B422CB372940D1F8002EC0A5 /* LatestRatesResponse.swift */,
+				B43AF99F294228CA00952E57 /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -525,6 +545,7 @@
 				B4D5DAAA293CA9620092F759 /* SceneDelegate.swift in Sources */,
 				B4FB5D95293F899C002DC03E /* MainViewModel.swift in Sources */,
 				B4D0CE8029410E670015E0D5 /* DictionaryUtils.swift in Sources */,
+				B43AF9A0294228CA00952E57 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +553,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43AF99E294226A400952E57 /* MockApiService.swift in Sources */,
 				B4D5DABF293CA9640092F759 /* CurrencyConverterTests.swift in Sources */,
+				B43AF99C2942268200952E57 /* MockMainViewDisplayLogic.swift in Sources */,
+				B4D0CE852941DDD00015E0D5 /* MainViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

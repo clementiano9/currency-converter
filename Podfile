@@ -10,6 +10,7 @@ target 'CurrencyConverter' do
   pod 'RxAlamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxTest'
   pod 'ObjectMapper'
   
   target 'CurrencyConverterTests' do
