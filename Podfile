@@ -10,12 +10,12 @@ target 'CurrencyConverter' do
   pod 'RxAlamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxTest'
   pod 'ObjectMapper'
   
   target 'CurrencyConverterTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxTest'
   end
 
   target 'CurrencyConverterUITests' do
