@@ -37,4 +37,11 @@ class ApiService: ApiServiceDelegate {
         .debug()
         .mapObject(type: LatestRatesResponse.self)
     }
+    
+    func getHistoricalRate(base: String, target: String, date: String) -> Observable<HistoricalRate> {
+        let url = ApiEndpoints.historicalRate.url + "/\(date)?symbols=\(target)&base\(base)"
+        return RxAlamofire.requestJSON(.get, url, headers: ["apiKey": apiKey])
+            .debug()
+            .mapObject(type: HistoricalRate.self)
+    }
 }

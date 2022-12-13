@@ -94,12 +94,17 @@ class MainViewController: UIViewController {
         viewModel.setSourceValue(sender.text ?? "")
     }
     
-    func displayAlertMessage(message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
-        }))
-        present(alert, animated: true, completion: nil)
+    @IBAction func switchPressed(_ sender: Any) {
+        viewModel.switchCurrencies()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let dest = segue.destination as? DetailsViewController {
+            dest.source = viewModel.fromCurrency.value
+            dest.target = viewModel.toCurrenccy.value
+            dest.rates = viewModel.rates
+        }
     }
 }
 
@@ -141,6 +146,7 @@ extension MainViewController: MainViewDisplayLogic {
     func mainDataLoading() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+        fromTextField.isEnabled = false
     }
     
     func mainDataLoadingFailure(error: Error) {
@@ -150,6 +156,7 @@ extension MainViewController: MainViewDisplayLogic {
     
     func mainDataLoadingSuccess() {
         activityIndicator.isHidden = true
+        fromTextField.isEnabled = true
     }
     
     func conversionFinished(amount: String) {

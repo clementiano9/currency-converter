@@ -55,4 +55,20 @@ class MockApiService: ApiServiceDelegate {
             )
         )
     }
+    
+    func getHistoricalRate(base: String, target: String, date: String) -> Observable<HistoricalRate> {
+        guard !shouldFail else {
+            return Observable.error(ErrorResponse.custom("Failed"))
+        }
+        return Observable.just(
+            HistoricalRate(
+                base: "EUR",
+                date: "2022-12-1",
+                historical: true,
+                rates: ["USD" : 12.2],
+                success: true,
+                timestamp: 1670419866
+            )
+        )
+    }
 }

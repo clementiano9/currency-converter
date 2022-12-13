@@ -14,4 +14,7 @@ protocol ApiServiceDelegate {
     
     /// Fetch latest rates for the base currency
     func getLatestRates(base: String) -> Observable<LatestRatesResponse>
+    
+    /// Fetch historical rate
+    func getHistoricalRate(base: String, target: String, date: String) -> Observable<HistoricalRate>
 }

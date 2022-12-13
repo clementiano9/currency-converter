@@ -123,4 +123,10 @@ class MainViewModel {
 
         return (value * exchangeRate).description
     }
+    
+    func switchCurrencies() {
+        let hold = fromCurrency.value
+        fromCurrency.accept(toCurrenccy.value)
+        toCurrenccy.accept(hold)        
+    }
 }

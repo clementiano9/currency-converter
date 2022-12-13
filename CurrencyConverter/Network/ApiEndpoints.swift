@@ -13,6 +13,7 @@ fileprivate let BASE_URL = "https://api.apilayer.com/fixer"
 enum ApiEndpoints: String {
     case symbols = "/symbols"
     case latestRates = "/latest"
+    case historicalRate = ""
 }
 
 extension ApiEndpoints {
